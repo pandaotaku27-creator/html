@@ -25,12 +25,14 @@ jobs:
       
       - name: Setup Pages
         uses: actions/configure-pages@v3
-      
+
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        # use v1 to avoid dependency on deprecated actions/upload-artifact v3
+        uses: actions/upload-pages-artifact@v1
         with:
           path: '.'
-      
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        # v1 is compatible and avoids deprecated transitive deps
+        uses: actions/deploy-pages@v1
